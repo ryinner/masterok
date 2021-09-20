@@ -32,15 +32,6 @@ formsBackground.addEventListener("click", function (event) {
 
 // Validation
 
-const requirments = new Map([
-    [loginInput, 'Только английские буквы, точка и нижнее подчеркивание. <br> Поле должно быть заполнено'],
-    [regLoginInput, 'Только английские буквы, точка и нижнее подчеркивание. <br> Поле должно быть заполнено'],
-    [passwordInput, 'Поле должно быть заполнено, минимальное количество символов - 8'],
-    [nameInput, 'Только русские буквы, пробел и дефис. <br> Поле должно быть заполнено'],
-    [emailInput, 'Формат адреса электронной почты: <br> xx-xx_x.x@xxx.xxx, дефис и нижнее подчеркивание разрешены в первых двух разрешены до символа точки после символа "@", точка только до символа "@". Поле должно быть заполнено'],
-    [passwordConfInput, 'Пароли должны совпадать. <br> Поле должно быть заполнено'],
-])
-
 function inputStylesChange(currInput) {
     let v = currInput.value
     if (v.length !== 0) {
@@ -52,7 +43,6 @@ function inputStylesChange(currInput) {
 
 function isValidActions(isValid, currentInput) {
     if (!isValid) {
-        changeInnerHTML(requirments, currentInput)
         currentInput.parentNode.nextElementSibling.classList.add('visible-alert')
     } else {
         if (currentInput.parentNode.nextElementSibling.classList.contains('alert')) {
@@ -106,31 +96,26 @@ passwordConfInput.addEventListener("input", function () {
 let wrongDataElem = document.createElement('div');
 wrongDataElem.className = "alert";
 
-function changeInnerHTML(requirments, key) {
-    wrongDataElem.innerHTML = requirments.get(key)
-}
-
 // Form submit
 
-registerForm.addEventListener('submit', function (event) {
+registerForm.addEventListener('submit', async (event) => {
     event.preventDefault()
     let user = {
         name: nameInput.value,
         login: regLoginInput.value,
         email: emailInput.value,
         password: regPasswordInput.value,
-        passwordConf: passwordConfInput.value,
+        passwordConf: passwordConfInput.value
     }
-      
+
     let response = await fetch('../php/reg.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;charset=utf-8'
+            'Content-Type': 'application/json;'
         },
         body: JSON.stringify(user)
     });
-    
-    let result = await response.json();
-    alert(result.message);
-})
 
+    let result = await response.json();
+    console.log(result);
+})
