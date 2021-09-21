@@ -149,11 +149,11 @@ ul {
     color: var(--color-orange);
 }
 
-.valid {
+.not-empty {
     border-bottom-color: var(--color-orange) !important;
 }
 
-.valid+.form__label {
+.not-empty+.form__label {
     color: var(--color-orange);
     transform: translateY(-1.3rem);
 }

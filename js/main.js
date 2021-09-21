@@ -35,9 +35,9 @@ formsBackground.addEventListener("click", function (event) {
 function inputStylesChange(currInput) {
     let v = currInput.value
     if (v.length !== 0) {
-        currInput.classList.add('valid')
+        currInput.classList.add('not-empty')
     } else {
-        currInput.classList.remove('valid')
+        currInput.classList.remove('not-empty')
     }
 }
 
@@ -53,43 +53,47 @@ function isValidActions(isValid, currentInput) {
 
 loginInput.addEventListener("input", function () {
     inputStylesChange(loginInput)
-    let isValid = /^[A-Za-z._]+$/.test(loginInput.value)
+    isValid = /^[A-Za-z._]+$/.test(loginInput.value)
     isValidActions(isValid, loginInput)
 })
 
 passwordInput.addEventListener("input", function () {
+    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,}$/.test(passwordInput.value)
     inputStylesChange(passwordInput)
-    // isValidActions(isValid, passwordInput) когда буит регистрация
+    isValidActions(isValid, passwordInput)
 })
 
 nameInput.addEventListener("input", function () {
-    let isValid = /^[А-Яа-яЁё\s-]+$/.test(nameInput.value)
+    isValid = /^[А-Яа-яЁё\s-]+$/.test(nameInput.value)
     inputStylesChange(nameInput)
     isValidActions(isValid, nameInput)
 })
 
 regLoginInput.addEventListener("input", function () {
-    let isValid = /^[A-Za-z._]+$/.test(regLoginInput.value)
+    isValid = /^[A-Za-z._]+$/.test(regLoginInput.value)
     inputStylesChange(regLoginInput)
     isValidActions(isValid, regLoginInput)
 })
 
 emailInput.addEventListener("input", function () {
-    let isValid = /^([A-z0-9_.-]{2,})@([A-z0-9_-]{2,}).([A-z]{2,})/.test(emailInput.value)
+    isValid = /^([A-z0-9_.-]{2,})@([A-z0-9_-]{2,}).([A-z]{2,})/.test(emailInput.value)
     inputStylesChange(emailInput)
     isValidActions(isValid, emailInput)
 })
 
 regPasswordInput.addEventListener("input", function () {
+    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,}$/.test(regPasswordInput.value)
     inputStylesChange(regPasswordInput)
-    // isValidActions(isValid, loginInput) когда буит регистрация
+    isValidActions(isValid, regPasswordInput)
 })
 
 passwordConfInput.addEventListener("input", function () {
+    isValid = (regPasswordInput.value == passwordConfInput.value) ? true : false
     inputStylesChange(passwordConfInput)
-    // isValidActions(isValid, loginInput) когда буит регистрация
-    // проверка на совпадение с другим паролем
+    isValidActions(isValid, passwordConfInput)
 })
+
+
 
 // Child
 
@@ -98,7 +102,57 @@ wrongDataElem.className = "alert";
 
 // Form submit
 
-registerForm.addEventListener('submit', async (event) => {
+// registerForm.addEventListener('submit', async (event) => {
+//     event.preventDefault()
+//     let user = {
+//         name: nameInput.value,
+//         login: regLoginInput.value,
+//         email: emailInput.value,
+//         password: regPasswordInput.value,
+//         passwordConf: passwordConfInput.value
+//     }
+
+//     let response = await fetch('../php/reg.php', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json;'
+//         },
+//         body: JSON.stringify(user)
+//     });
+
+//     let result = await response.json()
+//     let repsone = JSON.parse(result)
+//     console.log(repsone, typeof repsone)
+// })
+
+function sendRequest(method, url, body = null) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open(method, url)
+
+        xhr.responseType = 'json'
+        xhr.setRequestHeader('Content-Type', 'application/json')
+
+        xhr.onload = () => {
+            if (xhr.status >= 400) {
+                reject(xhr.response)
+            } else {
+                resolve(xhr.response)
+            }
+        }
+
+        xhr.onerror = () => {
+            reject(xhr.response)
+        }
+
+        xhr.send(JSON.stringify(body))
+    })
+}
+
+// Forms submit
+
+registerForm.addEventListener('submit', (event) => {
     event.preventDefault()
     let user = {
         name: nameInput.value,
@@ -107,15 +161,10 @@ registerForm.addEventListener('submit', async (event) => {
         password: regPasswordInput.value,
         passwordConf: passwordConfInput.value
     }
-
-    let response = await fetch('../php/reg.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;'
-        },
-        body: JSON.stringify(user)
-    });
-
-    let result = await response.json();
-    console.log(result);
+    sendRequest('POST', '../php/reg.php', user)
+        .then(data => {
+            console.log(data)
+            return response = data
+        })
+        .catch(err => console.log(err))
 })
