@@ -1,75 +1,102 @@
 .forms-background {
-  position: absolute;
-  top: 0;
-  z-index: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000000c2;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease; }
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000c2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
 
 .form {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  padding: 12px 20px;
-  width: 400px;
-  box-shadow: 8px 10px 12px 4px rgba(50, 50, 50, 0.72);
-  background-color: var(--color-white);
-  opacity: 1;
-  transform: translate(-50%, -50%); }
-  .form__register {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 400px;
+    box-shadow: 8px 10px 12px 4px rgba(50, 50, 50, 0.72);
+    background-color: var(--color-white);
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.form__register {
     z-index: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease; }
-  .form__login {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.form__login {
     z-index: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease; }
-  .form__title {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.form__title {
     margin-top: 18px;
     margin-bottom: 0;
-    font-size: 32px; }
-  .form__input {
+    font-size: 32px;
+}
+
+.form__input {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
     padding-top: 1.5rem;
-    width: 75%; }
-    .form__input + .input {
-      margin-top: 1.5rem; }
-    .form__input::-moz-placeholder {
-      font-family: "Poppins", sans-serif;
-      color: var(--color-black); }
-    .form__input:-ms-input-placeholder {
-      font-family: "Poppins", sans-serif;
-      color: var(--color-black); }
-    .form__input::placeholder {
-      font-family: "Poppins", sans-serif;
-      color: var(--color-black); }
-    .form__input:not(:last-child) {
-      margin-bottom: 12px; }
-    .form__input_checkbox {
-      display: block; }
-  .form__label {
+    width: 75%;
+}
+
+.form__input+.input {
+    margin-top: 1.5rem;
+}
+
+.form__input::-moz-placeholder {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-black);
+}
+
+.form__input:-ms-input-placeholder {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-black);
+}
+
+.form__input::placeholder {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-black);
+}
+
+.form__input:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.form__input_checkbox {
+    display: block;
+}
+
+.form__label {
     position: absolute;
     top: 1.5rem;
     width: 100%;
     text-align: center;
     color: #535e66;
-    transition: color 0.25s ease, transform 0.25s ease; }
-    .form__label_checkbox {
-      font-size: 1.2rem;
-      color: #535e66; }
-  .form__field {
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.form__label_checkbox {
+    font-size: 1.2rem;
+    color: #535e66;
+}
+
+.form__field {
     z-index: 1;
     border: 0;
     border-bottom: 2px solid #9b9292;
@@ -77,17 +104,25 @@
     width: 100%;
     text-align: center;
     background-color: transparent;
-    cursor: pointer; }
-    .form__field:focus {
-      outline: 0;
-      border-bottom-color: var(--color-orange); }
-      .form__field:focus + .form__label {
-        color: var(--color-orange);
-        transform: translateY(-1.3rem); }
-  .form__action {
+    cursor: pointer;
+}
+
+.form__field:focus {
+    outline: 0;
+    border-bottom-color: var(--color-orange);
+}
+
+.form__field:focus+.form__label {
+    color: var(--color-orange);
+    transform: translateY(-1.3rem);
+}
+
+.form__action {
     margin: 12px 0;
-    width: 75%; }
-  .form__action-button {
+    width: 75%;
+}
+
+.form__action-button {
     border: 0;
     border-radius: 6px;
     padding: 15px;
@@ -96,20 +131,27 @@
     background-color: var(--color-orange);
     cursor: pointer;
     font-size: 1.75rem;
-    font-weight: 500; }
-    .form__action-button:focus {
-      outline: 0; }
-  .form__open-reg-form {
+    font-weight: 500;
+}
+
+.form__action-button:focus {
+    outline: 0;
+}
+
+.form__open-reg-form {
     margin-top: 4px;
     font-size: 24px;
     text-align: center;
-    cursor: pointer; }
+    cursor: pointer;
+}
 
 input[type="checkbox"] {
-  margin-right: 6px; }
+    margin-right: 6px;
+}
 
 .visible {
-  z-index: 1000;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s ease, visibility 0.5s ease; }
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}

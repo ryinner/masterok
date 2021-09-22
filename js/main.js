@@ -24,11 +24,14 @@ regFormButton.addEventListener("click", function () {
 })
 
 formsBackground.addEventListener("click", function (event) {
+    closeForms()
+})
+
+function closeForms(event) {
     formsBackground.classList.toggle('visible')
     registerForm.classList.remove('visible')
     loginForm.classList.remove('visible')
-    event.stopPropagation()
-})
+}
 
 // Validation
 
@@ -58,7 +61,7 @@ loginInput.addEventListener("input", function () {
 })
 
 passwordInput.addEventListener("input", function () {
-    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,}$/.test(passwordInput.value)
+    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,72}$/.test(passwordInput.value)
     inputStylesChange(passwordInput)
     isValidActions(isValid, passwordInput)
 })
@@ -92,13 +95,6 @@ passwordConfInput.addEventListener("input", function () {
     inputStylesChange(passwordConfInput)
     isValidActions(isValid, passwordConfInput)
 })
-
-
-
-// Child
-
-let wrongDataElem = document.createElement('div');
-wrongDataElem.className = "alert";
 
 // Form submit
 
@@ -164,7 +160,28 @@ registerForm.addEventListener('submit', (event) => {
     sendRequest('POST', '../php/reg.php', user)
         .then(data => {
             console.log(data)
+            if (data == 'Вы успешно зарегистрировались!') {
+                closeForms()
+            }
             return response = data
         })
+        .catch(err => console.log(err))
+})
+
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    let user = {
+        login: regLoginInput.value,
+        password: regPasswordInput.value
+    }
+    sendRequest('POST', '../php/auth.php', user)
+        .then(data => {
+            console.log(data)
+            if (data == 'Вы успешно авторизированны!') {
+                closeForms()
+            }
+            return response = data
+        })
+        // .then(closeForms())
         .catch(err => console.log(err))
 })

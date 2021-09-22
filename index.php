@@ -1,3 +1,7 @@
+<?php 
+   require_once('php/db.php');   
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -16,12 +20,7 @@
    <link rel="stylesheet" href="css/footer.css">
 </head>
 
-
 <body>
-
-   <?php 
-      require_once('php/db.php');   
-   ?>
 
    <div class="site-container">
 
@@ -64,7 +63,7 @@
                   <input name="password" id="password" type="password" class="form__field" autocomplete="off" />
                   <label class="form__label">Введите пароль</label>
                </div>
-               <div class="alert">Поле должно быть заполнено. Минимальное количество символов 8, разрешены любые буквы,
+               <div class="alert">Поле должно быть заполнено. Минимальное количество символов 8, максимальное - 72, разрешены любые буквы,
                   цифры и спецсимволы.</div>
 
                <div class="form__action">
@@ -102,7 +101,7 @@
                   <input name="password" id="reg-password" type="password" class="form__field" autocomplete="off" />
                   <label class="form__label">Введите пароль</label>
                </div>
-               <div class="alert">Поле должно быть заполнено. Минимальное количество символов 8, разрешены любые буквы,
+               <div class="alert">Поле должно быть заполнено. Минимальное количество символов 8, максимальное - 72, разрешены любые буквы,
                   цифры и спецсимволы.</div>
 
                <div class="form__input">
