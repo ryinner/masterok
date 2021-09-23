@@ -5,17 +5,15 @@
     $_POST = json_decode(file_get_contents("php://input"), true);
 
     $name = trim($_POST['name']);
-    $login = trim($_POST['login']);
+    $login = trim($_POST['reglogin']);
     $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+    $password = trim($_POST['regPassword']);
 
     $sql = "SELECT `login` FROM `users` WHERE `login` = :l";
     $query = $connect -> prepare($sql);
     $query->execute(['l' => $login]);
     $dbLogin = $query -> fetchAll(PDO::FETCH_COLUMN);
 
-    print_r($dbLogin);
-    
     if (empty($dbLogin)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -23,10 +21,10 @@
         $query = $connect -> prepare($sql);
         $result = $query->execute(['n' => $name, 'l' => $login, 'e' => $email, 'p' => $password]);
 
-        echo 'Вы успешно зарегистрировались!';
+        echo json_encode('Вы успешно зарегистрировались!');
 
     } else {
-        echo 'Такой логин уже зарегистрирован';
+        echo json_encode('Такой логин уже зарегистрирован');
     }
-    
+
 ?>

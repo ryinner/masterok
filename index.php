@@ -50,17 +50,17 @@
          </section>
          <div class="forms-background" id="forms-background">
 
-            <form class="form form__login" id="login-form" method="post" autocomplete="off" novalidate>
+            <form class="form form__login" id="login-form" autocomplete="off" novalidate>
                <h3 class="form__title orange-text">Войти в аккаунт</h3>
                <div class="form__input">
-                  <input name="login" id="login" type="text" class="form__field" autocomplete="off" />
+                  <input id="login" type="text" class="form__field" autocomplete="off" />
                   <label class="form__label">Введите логин</label>
                </div>
                <div class="alert">Только английские буквы, точка и нижнее подчеркивание. <br> Поле должно быть заполнено
                </div>
 
                <div class="form__input">
-                  <input name="password" id="password" type="password" class="form__field" autocomplete="off" />
+                  <input id="password" type="password" class="form__field" autocomplete="off" />
                   <label class="form__label">Введите пароль</label>
                </div>
                <div class="alert">Поле должно быть заполнено. Минимальное количество символов 8, максимальное - 72, разрешены любые буквы,

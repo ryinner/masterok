@@ -13,10 +13,12 @@ loginForm.addEventListener("click", function (event) {
     event.stopPropagation()
 })
 
-enterButton.addEventListener("click", function () {
-    formsBackground.classList.toggle('visible')
-    loginForm.classList.add('visible')
-})
+if (typeof enterButton !== null) {
+    // enterButton.addEventListener("click", function () {
+    //     formsBackground.classList.toggle('visible')
+    //     loginForm.classList.add('visible')
+    // })
+}
 
 regFormButton.addEventListener("click", function () {
     loginForm.classList.remove("visible")
@@ -96,31 +98,6 @@ passwordConfInput.addEventListener("input", function () {
     isValidActions(isValid, passwordConfInput)
 })
 
-// Form submit
-
-// registerForm.addEventListener('submit', async (event) => {
-//     event.preventDefault()
-//     let user = {
-//         name: nameInput.value,
-//         login: regLoginInput.value,
-//         email: emailInput.value,
-//         password: regPasswordInput.value,
-//         passwordConf: passwordConfInput.value
-//     }
-
-//     let response = await fetch('../php/reg.php', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json;'
-//         },
-//         body: JSON.stringify(user)
-//     });
-
-//     let result = await response.json()
-//     let repsone = JSON.parse(result)
-//     console.log(repsone, typeof repsone)
-// })
-
 function sendRequest(method, url, body = null) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
@@ -150,16 +127,15 @@ function sendRequest(method, url, body = null) {
 
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    let user = {
+    let regData = {
         name: nameInput.value,
-        login: regLoginInput.value,
+        reglogin: regLoginInput.value,
         email: emailInput.value,
-        password: regPasswordInput.value,
+        regPassword: regPasswordInput.value,
         passwordConf: passwordConfInput.value
     }
-    sendRequest('POST', '../php/reg.php', user)
+    sendRequest('POST', '../php/reg.php', regData)
         .then(data => {
-            console.log(data)
             if (data == 'Вы успешно зарегистрировались!') {
                 closeForms()
             }
@@ -170,18 +146,29 @@ registerForm.addEventListener('submit', (event) => {
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    let user = {
-        login: regLoginInput.value,
-        password: regPasswordInput.value
+    let loginData = {
+        login: loginInput.value,
+        password: passwordInput.value
     }
-    sendRequest('POST', '../php/auth.php', user)
+    sendRequest('POST', '../php/auth.php', loginData)
         .then(data => {
-            console.log(data)
-            if (data == 'Вы успешно авторизированны!') {
-                closeForms()
+            if (data == "Вы успешно авторизированны!") {
+                location.reload()
             }
             return response = data
         })
-        // .then(closeForms())
+        .catch(err => console.log(err))
+})
+
+// exit button
+
+exitButton.addEventListener('click', () => {
+    sendRequest('get', '../php/logout.php')
+        .then(data => {
+            if (data == "Вы успешно авторизированны!") {
+                console.log("Вы успешно авторизированны!")
+                location.reload()
+            }
+        })
         .catch(err => console.log(err))
 })

@@ -42,7 +42,16 @@
             </ul>
 
             <div>
-                <a class="header__link_enter" id="header__link_enter">Войти</a>
+                <?php
+                
+                    if (isset($_SESSION["id"]) && isset($_SESSION["login"])) {
+                        echo "<a class='header__link_enter' id='header__link_exit'>Выйти</a>";
+                    } else {
+                        echo "<a class='header__link_enter' id='header__link_enter'>Войти</a>";
+                    }
+                
+                ?>
+                
             </div>
         </div>
 

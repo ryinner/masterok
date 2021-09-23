@@ -1,4 +1,5 @@
 const enterButton = document.getElementById('header__link_enter')
+const exitButton = document.getElementById('header__link_exit')
 const formsBackground = document.querySelector('#forms-background')
 const loginForm = document.querySelector('#login-form')
 const registerForm = document.querySelector('#register-form')
