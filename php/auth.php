@@ -9,7 +9,7 @@
 
     $sql = "SELECT `id`, `login`, `password` FROM `users` WHERE `login` = :l";
     $query = $connect -> prepare($sql);
-    $query->execute(["l" => $login]);
+    $query -> execute(["l" => $login]);
     $result = $query -> fetch(PDO::FETCH_ASSOC);
 
     if (password_verify($password, $result["password"])) {

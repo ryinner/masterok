@@ -1,5 +1,3 @@
-const enterButton = document.getElementById('header__link_enter')
-const exitButton = document.getElementById('header__link_exit')
 const formsBackground = document.querySelector('#forms-background')
 const loginForm = document.querySelector('#login-form')
 const registerForm = document.querySelector('#register-form')
@@ -12,3 +10,9 @@ const emailInput = document.querySelector('#email')
 const regPasswordInput = document.querySelector('#reg-password')
 const passwordConfInput = document.querySelector('#password-conf')
 const dataConfirmationInput = document.querySelector('#dataConfirmation')
+
+if (document.getElementById('header__link_enter') == null) {
+    exitButton = document.getElementById('header__link_exit')
+} else {
+    enterButton = document.getElementById('header__link_enter')
+}

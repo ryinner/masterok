@@ -13,11 +13,11 @@ loginForm.addEventListener("click", function (event) {
     event.stopPropagation()
 })
 
-if (typeof enterButton !== null) {
-    // enterButton.addEventListener("click", function () {
-    //     formsBackground.classList.toggle('visible')
-    //     loginForm.classList.add('visible')
-    // })
+if (typeof enterButton !== "undefined") {
+    enterButton.addEventListener("click", function () {
+        formsBackground.classList.toggle('visible')
+        loginForm.classList.add('visible')
+    })
 }
 
 regFormButton.addEventListener("click", function () {
@@ -162,13 +162,15 @@ loginForm.addEventListener('submit', (event) => {
 
 // exit button
 
-exitButton.addEventListener('click', () => {
+if (typeof exitButton !== "undefined") {
+    exitButton.addEventListener('click', () => {
     sendRequest('get', '../php/logout.php')
         .then(data => {
-            if (data == "Вы успешно авторизированны!") {
-                console.log("Вы успешно авторизированны!")
+            if (data == "Вы успешно вышли из аккаунта!") {
+                console.log("Вы успешно вышли из аккаунта!")
                 location.reload()
             }
         })
         .catch(err => console.log(err))
-})
+    })
+}
