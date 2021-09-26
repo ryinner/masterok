@@ -20,6 +20,7 @@
 
 .header__logo {
   cursor: pointer;
+  width: 130px;
 }
 
 .header__link_enter {

@@ -137,6 +137,7 @@ registerForm.addEventListener('submit', (event) => {
     sendRequest('POST', '../php/reg.php', regData)
         .then(data => {
             if (data == 'Вы успешно зарегистрировались!') {
+                console.log(data)
                 closeForms()
             }
             return response = data
@@ -164,13 +165,13 @@ loginForm.addEventListener('submit', (event) => {
 
 if (typeof exitButton !== "undefined") {
     exitButton.addEventListener('click', () => {
-    sendRequest('get', '../php/logout.php')
-        .then(data => {
-            if (data == "Вы успешно вышли из аккаунта!") {
-                console.log("Вы успешно вышли из аккаунта!")
-                location.reload()
-            }
-        })
-        .catch(err => console.log(err))
+        sendRequest('get', '../php/logout.php')
+            .then(data => {
+                if (data == "Вы успешно вышли из аккаунта!") {
+                    console.log("Вы успешно вышли из аккаунта!")
+                    location.reload()
+                }
+            })
+            .catch(err => console.log(err))
     })
 }
