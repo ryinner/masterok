@@ -5,27 +5,27 @@
  * @returns {number}
  */
 
-registerForm.addEventListener("click", function (event) {
+registerForm.addEventListener('click', function (event) {
     event.stopPropagation()
 })
 
-loginForm.addEventListener("click", function (event) {
+loginForm.addEventListener('click', function (event) {
     event.stopPropagation()
 })
 
-if (typeof enterButton !== "undefined") {
-    enterButton.addEventListener("click", function () {
+if (typeof enterButton !== 'undefined') {
+    enterButton.addEventListener('click', function () {
         formsBackground.classList.toggle('visible')
         loginForm.classList.add('visible')
     })
 }
 
-regFormButton.addEventListener("click", function () {
-    loginForm.classList.remove("visible")
+regFormButton.addEventListener('click', function () {
+    loginForm.classList.remove('visible')
     registerForm.classList.add('visible')
 })
 
-formsBackground.addEventListener("click", function (event) {
+formsBackground.addEventListener('click', function (event) {
     closeForms()
 })
 
@@ -56,43 +56,43 @@ function isValidActions(isValid, currentInput) {
     }
 }
 
-loginInput.addEventListener("input", function () {
+loginInput.addEventListener('input', function () {
     inputStylesChange(loginInput)
     isValid = /^[A-Za-z._]+$/.test(loginInput.value)
     isValidActions(isValid, loginInput)
 })
 
-passwordInput.addEventListener("input", function () {
-    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,72}$/.test(passwordInput.value)
+passwordInput.addEventListener('input', function () {
+    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]{8,72}$/.test(passwordInput.value)
     inputStylesChange(passwordInput)
     isValidActions(isValid, passwordInput)
 })
 
-nameInput.addEventListener("input", function () {
+nameInput.addEventListener('input', function () {
     isValid = /^[А-Яа-яЁё\s-]+$/.test(nameInput.value)
     inputStylesChange(nameInput)
     isValidActions(isValid, nameInput)
 })
 
-regLoginInput.addEventListener("input", function () {
+regLoginInput.addEventListener('input', function () {
     isValid = /^[A-Za-z._]+$/.test(regLoginInput.value)
     inputStylesChange(regLoginInput)
     isValidActions(isValid, regLoginInput)
 })
 
-emailInput.addEventListener("input", function () {
+emailInput.addEventListener('input', function () {
     isValid = /^([A-z0-9_.-]{2,})@([A-z0-9_-]{2,}).([A-z]{2,})/.test(emailInput.value)
     inputStylesChange(emailInput)
     isValidActions(isValid, emailInput)
 })
 
-regPasswordInput.addEventListener("input", function () {
-    isValid = /^[A-zА-я0-9,./;'\-=+_|":?><`~*@]{8,}$/.test(regPasswordInput.value)
+regPasswordInput.addEventListener('input', function () {
+    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]{8,}$/.test(regPasswordInput.value)
     inputStylesChange(regPasswordInput)
     isValidActions(isValid, regPasswordInput)
 })
 
-passwordConfInput.addEventListener("input", function () {
+passwordConfInput.addEventListener('input', function () {
     isValid = (regPasswordInput.value == passwordConfInput.value) ? true : false
     inputStylesChange(passwordConfInput)
     isValidActions(isValid, passwordConfInput)
@@ -153,7 +153,7 @@ loginForm.addEventListener('submit', (event) => {
     }
     sendRequest('POST', '../php/auth.php', loginData)
         .then(data => {
-            if (data == "Вы успешно авторизированны!") {
+            if (data == 'Вы успешно авторизированны!') {
                 location.reload()
             }
             return response = data
@@ -163,12 +163,12 @@ loginForm.addEventListener('submit', (event) => {
 
 // exit button
 
-if (typeof exitButton !== "undefined") {
+if (typeof exitButton !== 'undefined') {
     exitButton.addEventListener('click', () => {
         sendRequest('get', '../php/logout.php')
             .then(data => {
-                if (data == "Вы успешно вышли из аккаунта!") {
-                    console.log("Вы успешно вышли из аккаунта!")
+                if (data == 'Вы успешно вышли из аккаунта!') {
+                    console.log('Вы успешно вышли из аккаунта!')
                     location.reload()
                 }
             })

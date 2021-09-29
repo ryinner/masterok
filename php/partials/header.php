@@ -57,8 +57,8 @@
 
         </div>
 
-        <div class="container">
-        <nav class="nav nav__container">
+        <div class="container nav__container">
+        <nav class="nav">
 
             <ul class="nav__links flex-right">
                 <li class="nav__item">На главную</li>
