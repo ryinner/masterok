@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cards.css">
 </head>
 
 <body>
@@ -28,36 +29,33 @@
 
         <main>
 
-            <section class="hero">
+            <?php 
 
-                <div class="hero__bg">
-
-                    <div class="container hero__container">
-                        <div>
-                            <h1 class="hero__title_main">
-                                Передовые технологии <br><span class="orange-text">в сфере ремонта.</span>
-                            </h1>
-                        </div>
-
-                        <h3 class="hero__title">
-                            Мы используем современные технологии и
-                            стройматериалы, <br> что позволяет нам обеспечивать
-                            семьи жильем, <br> которое они и заслуживают.
-                        </h3>
-                    </div>
-                </div>
-
-            </section>
-
-            <?php require_once("php/partials/forms.php") ?>            
+                require_once("php/partials/hero.php");
+                require_once("php/partials/forms.php");
+            
+            ?>            
 
             <section class="cards">
-                <div class="container">
-                    <div class="card">
+                <div class="container cards__container">
+                    <?php
+                        $sql = "SELECT orders.timestamp, orders.address, orders.status, orders.category, images.path 
+                        AS image FROM orders JOIN images ON orders.id = images.order_id WHERE status = 'отремонтированно' 
+                        ORDER BY `timestamp` DESC LIMIT 4";
+                        $query = $connect -> query($sql);
+                        $result = $query -> fetchAll(PDO::FETCH_ASSOC);
 
-                        <img src="img/orders/1595_nachalsya-remont-v-bibliotek.jpg" alt="">
-                        
-                    </div>
+                        foreach ($result as $key => $value) {
+                            echo '
+                                <div class="card">                        
+                                    <h4 class="card__text card__text_timestamp">' . $result[$key]["timestamp"] . '</h4>
+                                    <h3 class="card__text card__text_address">' . $result[$key]["address"] . '</h3>
+                                    <h4 class="card__text card__text_category">' . $result[$key]["category"] . '</h4>
+                                    <img class="card__image" src="' . $result[$key]["image"] . '" alt="">
+                                </div>
+                            ';
+                        }
+                    ?>
                 </div>
             </section>
             

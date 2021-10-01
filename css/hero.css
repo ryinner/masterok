@@ -1,50 +1,63 @@
 .hero {
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  color: var(--color-white);
-  background-image: url('../img/hero_bg.png');
-  background-size: cover;
-  background-repeat: no-repeat; }
-  .hero__container {
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    color: var(--color-white);
+    background-image: url('../img/hero_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero__container {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    height: 100vh; }
-  .hero__bg {
+    height: 100vh;
+}
+
+.hero__bg {
     z-index: 60;
     width: inherit;
     height: inherit;
-    background-color: rgba(0, 0, 0, 0.46); }
-  .hero__title {
+    background-color: rgba(0, 0, 0, 0.46);
+}
+
+.hero__title {
     font-weight: 500;
     font-size: 32px;
-    line-height: 1.5; }
-    .hero__title_main {
-      position: relative;
-      margin: 0;
-      border-bottom: 4px solid var(--color-white);
-      padding-top: 50px;
-      padding-right: 40px;
-      padding-bottom: 14px;
-      font-weight: 700;
-      font-size: 76px; }
-      .hero__title_main::before {
-        content: "";
-        position: absolute;
-        right: -53px;
-        top: -63px;
-        display: block;
-        width: 4px;
-        height: 260px;
-        background-color: var(--color-white); }
-      .hero__title_main::after {
-        content: "";
-        position: absolute;
-        right: -61px;
-        bottom: 18px;
-        display: block;
-        width: 70px;
-        height: 4px;
-        background-color: var(--color-white);
-        transform: rotate(140deg); }
+    line-height: 1.5;
+}
+
+.hero__title_main {
+    position: relative;
+    margin: 0;
+    border-bottom: 4px solid var(--color-white);
+    padding-top: 50px;
+    padding-right: 40px;
+    padding-bottom: 14px;
+    font-weight: 700;
+    font-size: 76px;
+}
+
+.hero__title_main::before {
+    content: "";
+    position: absolute;
+    right: -53px;
+    top: -63px;
+    display: block;
+    width: 4px;
+    height: 260px;
+    background-color: var(--color-white);
+}
+
+.hero__title_main::after {
+    content: "";
+    position: absolute;
+    right: -61px;
+    bottom: 18px;
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: var(--color-white);
+    transform: rotate(140deg);
+}
