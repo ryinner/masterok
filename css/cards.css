@@ -1,46 +1,49 @@
 .cards {
-   background-color: darkorange;
+    background-color: #e2e2e2;
+}
+
+.cards__title {
+    text-align: center;
+    margin: 0;
+    padding: 48px 0;
+    font-size: 50px;
 }
 
 .cards__container {
-    padding: 40px 0;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 .card {
+    background-color: white;
     position: relative;
     width: 40%;
-    padding: 16px;
+    padding: 26px;
     font-weight: 500;
     transition: all 0.3s ease;
-    margin-bottom: 18px;
+    margin-bottom: 32px;
     border: 1px solid transparent;
     border-radius: 12px;
-    color: var(--color-white);
-}
-
-.card:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 6px 5px 10px black;
-    border: 1px solid var(--color-gray-border);
+    color: var(--color-black);
 }
 
 .card__text {
     text-align: center;
     font-weight: inherit;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .card__text_timestamp {
     font-style: italic;
-    color: var(--color-gray);
+    color: var(--color-orange);
+    font-size: 20px;
     text-align: start;
 }
 
 .card__text_address {
+    padding: 0 45px;
     font-size: 1.8em;
 }
 
@@ -48,11 +51,32 @@
     font-size: 1.5em;
 }
 
-.card__image {
-    display: block;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 0;
+.images__container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
     border-radius: 10px;
 }
 
+.images__container:hover .move-image {
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translate(600px);
+}
+
+.card__image {
+    display: block;
+    max-width: 100%;
+    z-index: 30;
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition-delay: 0.3s;
+    border-radius: 10px;
+}
+
+.card__image_hidden {
+    z-index: 20;
+    position: absolute;
+}

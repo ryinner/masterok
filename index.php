@@ -37,26 +37,40 @@
             ?>            
 
             <section class="cards">
-                <div class="container cards__container">
+                <div class="container">
+                    <h2 class="cards__title">Последние заявки на ремонт</h2>
+                    <div class="cards__container">
                     <?php
-                        $sql = "SELECT orders.timestamp, orders.address, orders.status, orders.category, images.path 
-                        AS image FROM orders JOIN images ON orders.id = images.order_id WHERE status = 'отремонтированно' 
-                        ORDER BY `timestamp` DESC LIMIT 4";
+                        $sql = "SELECT `orders.id`, `orders.timestamp`, `orders.address`, `orders.status`, `orders.category`, `images.path`
+                        AS image FROM `orders` JOIN images ON `orders.id` = `images.order_id` WHERE status = 'отремонтированно' 
+                        ORDER BY `timestamp` DESC LIMIT 8";
                         $query = $connect -> query($sql);
-                        $result = $query -> fetchAll(PDO::FETCH_ASSOC);
+                        $result = $query -> fetchAll(PDO::FETCH_ASSOC);                        
+
+                        for ($i=0; $i < count($result); $i++) { 
+                            $next_array = $i + 1;
+                            array_push($result[$i], $result[$next_array]['image']);
+                            unset($result[$next_array]);
+                            $result = array_values($result);
+                        }
 
                         foreach ($result as $key => $value) {
                             echo '
-                                <div class="card">                        
+                                <div class="card">   
                                     <h4 class="card__text card__text_timestamp">' . $result[$key]["timestamp"] . '</h4>
                                     <h3 class="card__text card__text_address">' . $result[$key]["address"] . '</h3>
                                     <h4 class="card__text card__text_category">' . $result[$key]["category"] . '</h4>
-                                    <img class="card__image" src="' . $result[$key]["image"] . '" alt="">
+                                    <div class="images__container">
+                                        <img class="card__image move-image" src="' . $result[$key]["0"] . '" alt="картинка не пришла с бд :(">
+                                        <img class="card__image card__image_hidden" src="' . $result[$key]["image"] . '" alt="картинка не пришла с бд :)">
+                                    </div>                                    
                                 </div>
                             ';
                         }
                     ?>
+                    </div>
                 </div>
+                
             </section>
             
 
