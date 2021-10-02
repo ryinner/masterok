@@ -50,27 +50,22 @@
                         echo "<button class='header__link_enter' id='header__link_enter'>Войти</button>";
                     }
                 
-                ?>
-                
+                ?>                
             </div>
         </div>
+    </div>
 
-        </div>
-
-        <div class="container nav__container">
+    <div class="container nav__container">
         <nav class="nav">
-
             <ul class="nav__links flex-right">
                 <li class="nav__item">На главную</li>
                 <li class="nav__item">О нас</li>
-                <li class="nav__item">Наши проекты</li>
+                <li class="nav__item" id="addOrderBtn">Создать заявку</li>
                 <li class="nav__item">Контакты</li>
                 <li class="nav__item">Уведомления</li>
                 <li class="nav__item">Личный кабинет</li>
             </ul>
-
         </nav>
-
     </div>
 
 </header>

@@ -41,8 +41,8 @@
                     <h2 class="cards__title">Последние заявки на ремонт</h2>
                     <div class="cards__container">
                     <?php
-                        $sql = "SELECT `orders.id`, `orders.timestamp`, `orders.address`, `orders.status`, `orders.category`, `images.path`
-                        AS image FROM `orders` JOIN images ON `orders.id` = `images.order_id` WHERE status = 'отремонтированно' 
+                        $sql = "SELECT orders.id, orders.timestamp, orders.address, orders.status, orders.category, images.path
+                        AS image FROM `orders` JOIN `images` ON orders.id = images.order_id WHERE `status` = 'отремонтированно' 
                         ORDER BY `timestamp` DESC LIMIT 8";
                         $query = $connect -> query($sql);
                         $result = $query -> fetchAll(PDO::FETCH_ASSOC);                        

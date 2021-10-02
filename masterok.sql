@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 01 2021 г., 15:52
+-- Время создания: Окт 02 2021 г., 21:02
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -38,14 +38,14 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `path`, `order_id`) VALUES
-(2, '../img/orders/img1.jpg', 1),
-(3, '../img/orders/img2.jpg', 2),
-(4, '../img/orders/img3.jpg', 3),
-(5, '../img/orders/img4.jpg', 4),
-(6, '../img/orders/img5.png', 5),
-(7, '../img/orders/img6.jpg', 6),
-(8, '../img/orders/img7.jpg', 7),
-(9, '../img/orders/img8.jpg', 8);
+(1, '../img/orders/img1.jpg', 3),
+(2, '../img/orders/img2.jpg', 4),
+(3, '../img/orders/img3.jpg', 3),
+(4, '../img/orders/img4.jpg', 4),
+(5, '../img/orders/img5.png', 6),
+(6, '../img/orders/img6.jpg', 6),
+(7, '../img/orders/img7.jpg', 8),
+(8, '../img/orders/img8.jpg', 8);
 
 -- --------------------------------------------------------
 

@@ -137,7 +137,6 @@ registerForm.addEventListener('submit', (event) => {
     sendRequest('POST', '../php/reg.php', regData)
         .then(data => {
             if (data == 'Вы успешно зарегистрировались!') {
-                console.log(data)
                 closeForms()
             }
             return response = data
@@ -152,11 +151,12 @@ loginForm.addEventListener('submit', (event) => {
         password: passwordInput.value
     }
     sendRequest('POST', '../php/auth.php', loginData)
-        .then(data => {
-            if (data == 'Вы успешно авторизированны!') {
-                location.reload()
-            }
-            return response = data
+        .then(data => {     
+            console.log(data[1], typeof data)    
+            console.log(JSON.parse(data))   
+            // if (data == 'Вы успешно авторизированны!') {
+                // location.reload()
+            // }
         })
         .catch(err => console.log(err))
 })
@@ -168,7 +168,6 @@ if (typeof exitButton !== 'undefined') {
         sendRequest('get', '../php/logout.php')
             .then(data => {
                 if (data == 'Вы успешно вышли из аккаунта!') {
-                    console.log('Вы успешно вышли из аккаунта!')
                     location.reload()
                 }
             })

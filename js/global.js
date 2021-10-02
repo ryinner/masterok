@@ -10,6 +10,7 @@ const emailInput = document.querySelector('#email')
 const regPasswordInput = document.querySelector('#reg-password')
 const passwordConfInput = document.querySelector('#password-conf')
 const dataConfirmationInput = document.querySelector('#dataConfirmation')
+const addOrderBtn = document.querySelector('#addOrderBtn')
 
 if (document.getElementById('header__link_enter') == null) {
     exitButton = document.getElementById('header__link_exit')
