@@ -15,8 +15,7 @@
     if (password_verify($password, $result["password"])) {
         $_SESSION["id"] = $result["id"];
         $_SESSION["login"] = $result["login"];
-        $data = array($_SESSION["id"], $_SESSION["login"]);
-        echo json_encode($data);
+        echo json_encode("Вы успешно авторизированны!");
     } else {
         echo json_encode("Не верный пароль");
     }

@@ -171,3 +171,20 @@ ul {
 .visible-alert {
     display: block;
 }
+
+.hero__bg {
+    z-index: 60;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.46);
+}
+
+.hero {
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    color: var(--color-white);
+    background-image: url('../img/hero_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -58,12 +58,11 @@
     <div class="container nav__container">
         <nav class="nav">
             <ul class="nav__links flex-right">
-                <li class="nav__item">На главную</li>
-                <li class="nav__item">О нас</li>
-                <li class="nav__item" id="addOrderBtn">Создать заявку</li>
-                <li class="nav__item">Контакты</li>
-                <li class="nav__item">Уведомления</li>
-                <li class="nav__item">Личный кабинет</li>
+                <li class="nav__item"><a class="nav__link" href="/index.php">На главную</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">О наc</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">Контакты</a></li>
+                <li class="nav__item"><a class="nav__link" href="">Уведомления</a></li>
+                <li class="nav__item"><a class="nav__link" href="php/pages/cabinet.php">Личный кабинет</a></li>
             </ul>
         </nav>
     </div>

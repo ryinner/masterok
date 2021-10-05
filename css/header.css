@@ -70,13 +70,13 @@
   font-size: 26px;
 }
 
-.nav__item {
+.nav__link {
   color: var(--color-white);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
-.nav__item::after {
+.nav__link::after {
   content: "";
   display: block;
   margin-top: 4px;
@@ -90,12 +90,12 @@
   margin-right: 30px;
 }
 
-.nav__item:hover {
+.nav__link:hover {
   color: var(--color-orange);
   transition: all 0.4s ease-in-out;
 }
 
-.nav__item:hover::after {
+.nav__link:hover::after {
   width: 100%;
   transition: all 0.4s ease-in-out;
 }

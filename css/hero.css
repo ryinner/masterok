@@ -1,25 +1,8 @@
-.hero {
-    z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    color: var(--color-white);
-    background-image: url('../img/hero_bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 .hero__container {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     height: 100vh;
-}
-
-.hero__bg {
-    z-index: 60;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.46);
 }
 
 .hero__title {
