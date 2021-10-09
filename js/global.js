@@ -10,9 +10,25 @@ const emailInput = document.querySelector('#email')
 const regPasswordInput = document.querySelector('#reg-password')
 const passwordConfInput = document.querySelector('#password-conf')
 const dataConfirmationInput = document.querySelector('#dataConfirmation')
+const cabinetButton = document.querySelector('#cabinetButton')
+const body = document.querySelector('#body')
 
 if (document.getElementById('header__link_enter') == null) {
     exitButton = document.getElementById('header__link_exit')
 } else {
     enterButton = document.getElementById('header__link_enter')
+}
+
+// exit button
+
+if (typeof exitButton !== 'undefined') {
+    exitButton.addEventListener('click', () => {
+        sendRequest('get', '/php/logout.php')
+            .then(data => {
+                if (data == 'Вы успешно вышли из аккаунта!') {
+                    location.replace('/index.php')
+                }
+            })
+            .catch(err => console.log(err))
+    })
 }

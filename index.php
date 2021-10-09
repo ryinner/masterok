@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="css/cards.css">
 </head>
 
-<body>
+<body id="body">
 
     <div class="site-container">
-        <?php require_once('php/partials/header.php') ?>
+        <?php require_once("php/partials/header.php") ?>
         <main>
             <?php
                 require_once("php/partials/hero.php");
@@ -38,6 +38,7 @@
     </div>
 
     <script src="js/global.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/main.js"></script>
 </body>
 

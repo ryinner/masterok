@@ -1,0 +1,9 @@
+.cabinet__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.cabinet__title {
+    text-align: start;
+}

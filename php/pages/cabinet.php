@@ -1,43 +1,39 @@
 <?php 
-    require_once('../db.php');   
+    require_once('../db.php');
+    if (!isset($_SESSION['id']) || !isset($_SESSION['login'])) {
+        header('Location: /index.php'); 
+    }
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masterok | Cabinet</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/vendor.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-</head>
+
+<title>Masterok | Cabinet</title>
+
+<link rel="icon" href="/img/favicon.ico">
+
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/vendor.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/cabinet.css">
+<link rel="stylesheet" href="/css/footer.css">
+
 <body>
     <div class="site-container">
 
-    <?php require_once('../partials/header.php') ?>
+        <?php require_once('../partials/header.php') ?>
 
-    <main>
+        <main>
+            <section class="cabinet hero">
 
-        <section class="cabinet hero">
-
-            <div class="hero__bg">
-                <div class="container">
-            <?php 
-                echo '<pre>';
-                print_r ($_SESSION);
-                echo '</pre>';
-            ?>
-                </div>
-            </div>
             
-        </section>
+                
+            </section>
+        </main>
 
-    </main>
-
-    <?php require_once("../partials/footer.php"); ?>
+        <?php require_once('../partials/footer.php'); ?>
 
     </div>
+
+    <script src="/js/global.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/cabinet.js"></script>
 </body>
 </html>

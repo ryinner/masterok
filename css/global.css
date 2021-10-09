@@ -172,6 +172,16 @@ ul {
     display: block;
 }
 
+.hero {
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    color: var(--color-white);
+    background-image: url('/img/hero_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .hero__bg {
     z-index: 60;
     width: inherit;
@@ -179,12 +189,7 @@ ul {
     background-color: rgba(0, 0, 0, 0.46);
 }
 
-.hero {
-    z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    color: var(--color-white);
-    background-image: url('../img/hero_bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+.body_hide {
+    height: 100vh; 
+    overflow-y: hidden;
 }

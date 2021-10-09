@@ -2,6 +2,6 @@
     <div class="container footer__container">
 
 
-
+    
     </div>
 </footer>
