@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/css/vendor.css">
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/cabinet.css">
+<link rel="stylesheet" href="/css/forms.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <body>
@@ -25,12 +26,12 @@
 
                 <div class="hero__bg">
                     <div class="container cabinet__container">
-                        <button class="add-order-btn">Добавить заявку на ремонт</button>
-                        <pre>
-                            <?php
-                                print_r($_SESSION);
-                            ?>
-                        </pre>
+                        <div class="cabinet__side cabinet__side_left">
+
+                        </div>
+                        <div class="cabinet__side cabinet__side_right">
+                            <?php require_once('../partials/orderForm.php') ?>
+                        </div>
                     </div> 
                 </div>
                 

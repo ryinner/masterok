@@ -1,13 +1,11 @@
 .cabinet__container {
     padding-top: 220px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .cabinet__title {
     text-align: start;
-}
-
-pre {
-    margin: 0;
 }
 
 .add-order-btn {
@@ -19,4 +17,15 @@ pre {
     cursor: pointer;
     font-size: 1.75rem;
     font-weight: 500;
+}
+
+.cabinet__side {
+    width: 49%;
+}
+
+.cabinet__side_left {}
+
+.cabinet__side_right {
+    display: flex;
+    justify-content: center;
 }

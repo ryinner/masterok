@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/loginforms.css">
+    <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cards.css">
 </head>
@@ -42,6 +42,7 @@
     <script src="js/global.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/main.js"></script>
+    
 </body>
 
 </html>
