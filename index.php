@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/loginforms.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cards.css">
 </head>
@@ -24,11 +24,13 @@
 <body id="body">
 
     <div class="site-container">
-        <?php require_once("php/partials/header.php") ?>
+        <?php
+            require_once("php/partials/header.php") 
+        ?>
         <main>
             <?php
                 require_once("php/partials/hero.php");
-                require_once("php/partials/forms.php");
+                require_once("php/partials/loginforms.php");
                 require_once("php/partials/cards.php");            
             ?>
         </main>

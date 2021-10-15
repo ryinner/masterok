@@ -23,7 +23,16 @@
         <main>
             <section class="cabinet hero">
 
-            
+                <div class="hero__bg">
+                    <div class="container cabinet__container">
+                        <button class="add-order-btn">Добавить заявку на ремонт</button>
+                        <pre>
+                            <?php
+                                print_r($_SESSION);
+                            ?>
+                        </pre>
+                    </div> 
+                </div>
                 
             </section>
         </main>
@@ -35,5 +44,5 @@
     <script src="/js/global.js"></script>
     <script src="/js/functions.js"></script>
     <script src="/js/cabinet.js"></script>
+    
 </body>
-</html>

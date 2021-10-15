@@ -11,12 +11,17 @@
     $query = $connect -> prepare($sql);
     $query -> execute(["l" => $login]);
     $result = $query -> fetch(PDO::FETCH_ASSOC);
-
-    if (password_verify($password, $result["password"])) {
-        $_SESSION["id"] = $result["id"];
-        $_SESSION["login"] = $result["login"];
-        echo json_encode("Вы успешно авторизированны!");
+    
+    if ($result !== false) {
+        if (password_verify($password, $result["password"])) {
+            $_SESSION["id"] = $result["id"];
+            $_SESSION["login"] = $result["login"];
+            echo json_encode("Вы успешно авторизированны!");
+        } else {
+            echo json_encode("Не верный пароль");
+        }
     } else {
-        echo json_encode("Не верный пароль");
+        echo json_encode('Такой логин не зарегистирован!'); 
     }
+
 ?>

@@ -1,6 +1,6 @@
 <div class="forms-background" id="forms-background">
 
-    <form class="form form__login" id="login-form" autocomplete="off" novalidate>
+    <form class="form form__login" id="login-form" autocomplete="off">
         <h3 class="form__title orange-text">Войти в аккаунт</h3>
         <div class="form__input">
             <input id="login" type="text" class="form__field" autocomplete="off" />

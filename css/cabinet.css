@@ -1,9 +1,22 @@
 .cabinet__container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+    padding-top: 220px;
 }
 
 .cabinet__title {
     text-align: start;
+}
+
+pre {
+    margin: 0;
+}
+
+.add-order-btn {
+    border: 0;
+    border-radius: 6px;
+    padding: 16px 24px;
+    color: var(--color-white);
+    background-color: var(--color-orange);
+    cursor: pointer;
+    font-size: 1.75rem;
+    font-weight: 500;
 }

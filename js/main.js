@@ -23,6 +23,8 @@ formsBackground.addEventListener('click', (event) => {
     closeForms()
 })
 
+// validation
+
 loginInput.addEventListener('input', () => {
     inputStylesChange(loginInput)
     isValid = /^[A-Za-z._]+$/.test(loginInput.value)
@@ -69,35 +71,44 @@ passwordConfInput.addEventListener('input', () => {
 
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    let regData = {
-        name: nameInput.value,
-        reglogin: regLoginInput.value,
-        email: emailInput.value,
-        regPassword: regPasswordInput.value,
-        passwordConf: passwordConfInput.value
+    if (registerForm.querySelector('.visible-alert') == null && registerForm.querySelectorAll('.not-empty').length == 5 && dataConfirmationInput.checked == true) {
+        let regData = {
+            name: nameInput.value,
+            reglogin: regLoginInput.value,
+            email: emailInput.value,
+            regPassword: regPasswordInput.value,
+            passwordConf: passwordConfInput.value
+        }
+        sendRequest('POST', '../php/reg.php', regData)
+            .then(data => {
+                if (data == 'Вы успешно зарегистрировались!') {
+                    console.log(data)
+                    closeForms()
+                }
+            })
+            .catch(err => console.log(err))
+    } else {
+        alert('Какое то поле не заполнено или нарушена валидация')
     }
-    sendRequest('POST', '../php/reg.php', regData)
-        .then(data => {
-            if (data == 'Вы успешно зарегистрировались!') {
-                console.log(data)
-                closeForms()
-            }
-            return response = data
-        })
-        .catch(err => console.log(err))
+    
 })
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    let loginData = {
-        login: loginInput.value,
-        password: passwordInput.value
+    if (loginForm.querySelector('.visible-alert') == null && loginForm.querySelectorAll('.not-empty').length == 2) {
+            let loginData = {
+            login: loginInput.value,
+            password: passwordInput.value
+        }
+        sendRequest('POST', '../php/auth.php', loginData)
+            .then(data => {
+                console.log(data)
+                if (data == "Вы успешно авторизированны!") {
+                    location.reload()
+                }
+            })
+            .catch(err => console.log(err))
+    } else {
+        alert('Какое то поле не заполнено или нарушена валидация')
     }
-    sendRequest('POST', '../php/auth.php', loginData)
-        .then(data => {
-            if (data == "Вы успешно авторизированны!") {
-                location.reload()
-            }
-        })
-        .catch(err => console.log(err))
 })
