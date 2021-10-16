@@ -7,7 +7,8 @@
     </div>
 
     <div class="form__input">
-        <!-- тут textarea -->
+        <textarea class="form__description" name="description" id="description" placeholder="Введите описание" 
+            rows="10"></textarea>
     </div>
 
     <button class="add-order-btn">Создать</button>
