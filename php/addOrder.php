@@ -1,5 +1,16 @@
 <?php
 
+    require_once('db.php');
+
+    echo '<pre>';
+    print_r($_FILES);
+    echo '</pre>';
+
+    $address = $_POST['address'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
+    $max_price = $_POST['max_price'];
+    
     $uploaddir = '../img/orders/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
@@ -12,5 +23,8 @@
     } else {
         echo json_encode("Возможная атака с помощью файловой загрузки!");
     }    
+
+    $sql = 'INSERT INTO `orders`(`address`, `category`, `status`, `before_image`) 
+    VALUES ( a:, :c, ,[value-4])'
 
 ?>

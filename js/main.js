@@ -79,7 +79,7 @@ registerForm.addEventListener('submit', (event) => {
             regPassword: regPasswordInput.value,
             passwordConf: passwordConfInput.value
         }
-        sendRequest('POST', '../php/reg.php', regData)
+        sendRequest('POST', '../php/reg.php', 'application/json', regData)
             .then(data => {
                 if (data == 'Вы успешно зарегистрировались!') {
                     console.log(data)
@@ -100,7 +100,7 @@ loginForm.addEventListener('submit', (event) => {
             login: loginInput.value,
             password: passwordInput.value
         }
-        sendRequest('POST', '../php/auth.php', loginData)
+        sendRequest('POST', '../php/auth.php', 'application/json', loginData)
             .then(data => {
                 console.log(data)
                 if (data == "Вы успешно авторизированны!") {

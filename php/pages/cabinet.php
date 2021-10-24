@@ -27,7 +27,7 @@
                 <div class="hero__bg">
                     <div class="container cabinet__container">
                         <div class="cabinet__side cabinet__side_left">
-
+                        
                         </div>
                         <div class="cabinet__side cabinet__side_right">
                             <?php require_once('../partials/orderForm.php') ?>
