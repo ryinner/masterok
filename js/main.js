@@ -79,7 +79,7 @@ registerForm.addEventListener('submit', (event) => {
             regPassword: regPasswordInput.value,
             passwordConf: passwordConfInput.value
         }
-        sendRequest('POST', '../php/reg.php', 'application/json', regData)
+        sendRequest('POST', '../php/reg.php', 'application/json', 'json', regData)
             .then(data => {
                 if (data == 'Вы успешно зарегистрировались!') {
                     console.log(data)
