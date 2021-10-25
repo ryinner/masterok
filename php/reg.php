@@ -2,7 +2,15 @@
 
     require_once('db.php');
 
+    echo '<pre>';
+    var_dump($_POST);
+    echo '</pre>';
+
     $_POST = json_decode(file_get_contents("php://input"), true);
+
+    echo '<pre>';
+    var_dump($_POST);
+    echo '</pre>';
 
     $name = trim($_POST['name']);
     $login = trim($_POST['reglogin']);
@@ -21,10 +29,10 @@
         $query = $connect -> prepare($sql);
         $result = $query->execute(['n' => $name, 'l' => $login, 'e' => $email, 'p' => $password]);
 
-        echo json_encode('Вы успешно зарегистрировались!');
+        // echo json_encode('Вы успешно зарегистрировались!');
 
     } else {
-        echo json_encode('Такой логин уже зарегистрирован');
+        // echo json_encode('Такой логин уже зарегистрирован');
     }
 
 ?>

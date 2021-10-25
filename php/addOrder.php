@@ -3,7 +3,7 @@
     require_once('db.php');
 
     echo '<pre>';
-    print_r($_FILES);
+    var_dump($_FILES);
     echo '</pre>';
 
     $address = $_POST['address'];

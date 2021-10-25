@@ -79,10 +79,10 @@ registerForm.addEventListener('submit', (event) => {
             regPassword: regPasswordInput.value,
             passwordConf: passwordConfInput.value
         }
-        sendRequest('POST', '../php/reg.php', 'application/json', 'json', regData)
+        sendRequest('POST', '../php/reg.php', 'application/json', regData, 'json')
             .then(data => {
+                console.log(JSON.parse(data))
                 if (data == 'Вы успешно зарегистрировались!') {
-                    console.log(data)
                     closeForms()
                 }
             })
@@ -90,17 +90,17 @@ registerForm.addEventListener('submit', (event) => {
     } else {
         alert('Какое то поле не заполнено или нарушена валидация')
     }
-    
+
 })
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
     if (loginForm.querySelector('.visible-alert') == null && loginForm.querySelectorAll('.not-empty').length == 2) {
-            let loginData = {
+        let loginData = {
             login: loginInput.value,
             password: passwordInput.value
         }
-        sendRequest('POST', '../php/auth.php', 'application/json', loginData)
+        sendRequest('POST', '../php/auth.php', 'application/json', loginData, 'json'    )
             .then(data => {
                 console.log(data)
                 if (data == "Вы успешно авторизированны!") {
