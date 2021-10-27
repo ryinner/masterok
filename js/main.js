@@ -72,16 +72,15 @@ passwordConfInput.addEventListener('input', () => {
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault()
     if (registerForm.querySelector('.visible-alert') == null && registerForm.querySelectorAll('.not-empty').length == 5 && dataConfirmationInput.checked == true) {
-        let regData = {
+        let regData = JSON.stringify({
             name: nameInput.value,
             reglogin: regLoginInput.value,
             email: emailInput.value,
             regPassword: regPasswordInput.value,
             passwordConf: passwordConfInput.value
-        }
-        sendRequest('POST', '../php/reg.php', 'application/json', regData, 'json')
+        })
+        sendRequest('POST', '../php/reg.php', regData, 'application/json')
             .then(data => {
-                console.log(JSON.parse(data))
                 if (data == 'Вы успешно зарегистрировались!') {
                     closeForms()
                 }
@@ -96,14 +95,13 @@ registerForm.addEventListener('submit', (event) => {
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
     if (loginForm.querySelector('.visible-alert') == null && loginForm.querySelectorAll('.not-empty').length == 2) {
-        let loginData = {
+        let loginData = JSON.stringify({
             login: loginInput.value,
             password: passwordInput.value
-        }
-        sendRequest('POST', '../php/auth.php', 'application/json', loginData, 'json'    )
+        })
+        sendRequest('POST', '../php/auth.php', loginData, 'application/json')
             .then(data => {
-                console.log(data)
-                if (data == "Вы успешно авторизированны!") {
+                if (data == 'Вы успешно авторизированны!') {
                     location.reload()
                 }
             })

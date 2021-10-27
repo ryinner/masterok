@@ -1,4 +1,4 @@
-<form class="form form__order" id="add-order-form" autocomplete="off">
+<form class="form form__order" id="add-order-form" autocomplete="off" enctype="multipart/form-data">
     
     <h3 class="form__title orange-text">Создать заявку</h3>
 

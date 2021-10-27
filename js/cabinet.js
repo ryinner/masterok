@@ -1,12 +1,12 @@
 addOrderForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    if ( true
-        // addOrderForm.querySelector('.visible-alert') == null 
-        // && addOrderForm.querySelectorAll('.not-empty').length == 3
-        // && fileInput.files.length !== 0
+    if (
+        addOrderForm.querySelector('.visible-alert') == null 
+        && addOrderForm.querySelectorAll('.not-empty').length == 3
+        && fileInput.files.length !== 0
        ) {
         let orderData = new FormData(addOrderForm)
-        sendRequest('POST', '../addOrder.php', 'multipart/form-data', orderData)
+        sendRequest('POST', '../addOrder.php', orderData)
             .then(data => {
                 console.log(data)
             })

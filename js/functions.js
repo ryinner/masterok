@@ -1,15 +1,11 @@
 // Отправляем запрос
-function sendRequest(method, url, requestHeader = null, body = null, responseType = null) {
+function sendRequest(method, url, body = null, requestHeader = null) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
 
         xhr.open(method, url)
 
-        if (responseType !== null) {
-            xhr.responseType = responseType
-        }
-
-        if (requestHeader == 'application/json') {
+        if (requestHeader !== null) {
             xhr.setRequestHeader('Content-Type', requestHeader)
         }
 
@@ -26,10 +22,6 @@ function sendRequest(method, url, requestHeader = null, body = null, responseTyp
         }
 
         xhr.send(body)
-    }).then(data => {
-        console.log('1')
-        console.log(data)
-        console.log('2')
     })
 }
 
