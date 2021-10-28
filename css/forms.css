@@ -160,6 +160,7 @@ input[type="checkbox"] {
     position: unset;
     width: 100%;
     transform: translate(0, 0);
+    height: fit-content;
 }
 
 .form__description {

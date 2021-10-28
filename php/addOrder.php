@@ -24,13 +24,13 @@
     $allowedExtension = ['jpg','jpeg','png','bmp'];
     $allowedSize = 2097152;
 
-    if ($imgSize > $allowedSize) {
+    if ($imgSize < $allowedSize) {
         if (in_array($fileExtension, $allowedExtension)) {
             if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $uploadFile)) {
-                $sql = 'INSERT INTO `orders`(`address`, `category`, `description`, `max_price`, `before_image`) VALUES 
-                (:a, :c, :d, :m, :b)';
+                $sql = 'INSERT INTO `orders`(`user_id`, `address`, `category`, `description`, `max_price`, `before_image`) VALUES 
+                (:u, :a, :c, :d, :m, :b)';
                 $query = $connect -> prepare($sql);
-                $result = $query->execute(["a" => $address, "c" => $category, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
+                $result = $query->execute(["u" => $_SESSION['id'], "a" => $address, "c" => $category, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
                 echo 'Добавление заявки успешно';
             } else {
                 echo 'Возможная атака с помощью файловой загрузки!';

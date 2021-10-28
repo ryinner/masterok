@@ -14,10 +14,11 @@
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/cabinet.css">
 <link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/cards.css">
 <link rel="stylesheet" href="/css/alert.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<body>
+<body class="cabinet__body">
     <div class="site-container">
 
         <?php 
@@ -31,7 +32,31 @@
                 <div class="hero__bg">
                     <div class="container cabinet__container">
                         <div class="cabinet__side cabinet__side_left">
+                            <h2 class="cabinet__title_h2">Ваши заявки</h2>
+                            <div class="orders__container">
+                                <?php
+                                
+                                    $sql = "SELECT `timestamp`, `address`, `description`, `category`, `max_price`, `status`  
+                                    FROM `orders` WHERE `user_id` = :u ORDER BY `timestamp` DESC";
+                                    $query = $connect -> prepare($sql);
+                                    $query -> execute(["u" => $_SESSION['id']]);
+                                    $result = $query -> fetchAll(PDO::FETCH_ASSOC);
                         
+                                    foreach ($result as $key => $value) {
+                                        echo '
+                                            <div class="card">   
+                                                <h4 class="card__text card__text_timestamp">' . $result[$key]["timestamp"] . '</h4>
+                                                <h3 class="card__text">' . $result[$key]["address"] . '</h3>
+                                                <h4 class="card__text card__text_category">' . $result[$key]["category"] . '</h4>
+                                                <h4 class="card__text card__text_description">' . $result[$key]["description"] . '</h4>
+                                                <h4 class="card__text card__text_max-price">' . $result[$key]["max_price"] . '</h4>
+                                                <h4 class="card__text card__text_status">' . $result[$key]["status"] . '</h4>                               
+                                            </div>
+                                        ';
+                                    }
+                                
+                                ?>
+                            </div>
                         </div>
                         <div class="cabinet__side cabinet__side_right">
                             <?php require_once('../partials/orderForm.php') ?>

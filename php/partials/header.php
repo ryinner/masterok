@@ -4,7 +4,7 @@
 
         <div class="container header__container_top">
             
-            <img class="header__logo" src="logo/logo_ok.png" alt="Logo">
+            <img class="header__logo" src="/logo/logo_ok.png" alt="Logo">
 
             <ul class="header__links flex">
                 <li class="header__item">

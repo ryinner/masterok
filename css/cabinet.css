@@ -1,21 +1,30 @@
+.cabinet__body {
+    background-color: var(--color-gray);
+}
+
 .cabinet__container {
-    padding-top: 220px;
+    padding-top: 180px;
     display: flex;
     justify-content: space-between;
 }
 
-.cabinet__title {
-    text-align: start;
+.cabinet__title_h2 {
+    font-size: 4rem;
+    margin-top: 0;
 }
 
 .cabinet__side {
     width: 49%;
 }
 
-.cabinet__side_left {}
-
 .cabinet__side_right {
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+.orders__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
