@@ -8,7 +8,7 @@ addOrderForm.addEventListener('submit', (event) => {
         let orderData = new FormData(addOrderForm)
         sendRequest('POST', '../addOrder.php', orderData)
             .then(data => {
-                console.log(data)
+                alert(data)
             })
             .catch(err => console.log(err))
     } else {
@@ -17,19 +17,22 @@ addOrderForm.addEventListener('submit', (event) => {
 })
 
 addressInput.addEventListener('input', () => {
-    isValid = /^[А-Яа-яЁё\s-]+$/.test(addressInput.value)
+    isValid = /[А-Яа-яЁё\s-]+/.test(addressInput.value)
+    console.log(isValid, addressInput.value)
     inputStylesChange(addressInput)
     isValidActions(isValid, addressInput)
 })
 
 descriptionInput.addEventListener('input', () => {
-    isValid = /^[А-Яа-яЁё\s-]+$/.test(descriptionInput.value)
+    isValid = /[А-Яа-яЁё\s-]+/.test(descriptionInput.value)
+    console.log(isValid, descriptionInput.value)
     inputStylesChange(descriptionInput)
     isValidActions(isValid, descriptionInput)
 })
 
 maxPriceInput.addEventListener('input', () => {
-    isValid = /^[0-9]+$/.test(maxPriceInput.value)
+    isValid = /^[0-9]+/.test(maxPriceInput.value)
+    console.log(isValid, maxPriceInput.value)
     inputStylesChange(maxPriceInput)
     isValidActions(isValid, maxPriceInput)
 })

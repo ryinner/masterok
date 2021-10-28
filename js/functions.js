@@ -42,7 +42,9 @@ function inputStylesChange(currInput) {
 // Показывание алертов валидации
 function isValidActions(isValid, currentInput) {
     if (!isValid) {
-        currentInput.parentNode.nextElementSibling.classList.add('visible-alert')
+        if (currentInput.parentNode.nextElementSibling.classList.contains('alert')) {
+            currentInput.parentNode.nextElementSibling.classList.add('visible-alert')
+        }
     } else {
         if (currentInput.parentNode.nextElementSibling.classList.contains('alert')) {
             currentInput.parentNode.nextElementSibling.classList.remove('visible-alert')

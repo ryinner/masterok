@@ -14,12 +14,16 @@
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/cabinet.css">
 <link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/alert.css">
 <link rel="stylesheet" href="/css/footer.css">
 
 <body>
     <div class="site-container">
 
-        <?php require_once('../partials/header.php') ?>
+        <?php 
+            require_once('../partials/header.php');
+            require_once('../partials/alert.php');        
+        ?>
 
         <main>
             <section class="cabinet hero">

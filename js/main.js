@@ -44,7 +44,7 @@ nameInput.addEventListener('input', () => {
 })
 
 regLoginInput.addEventListener('input', () => {
-    isValid = /^[A-Za-z._]+$/.test(regLoginInput.value)
+    isValid = /^[A-Za-z.]+$/.test(regLoginInput.value)
     inputStylesChange(regLoginInput)
     isValidActions(isValid, regLoginInput)
 })
