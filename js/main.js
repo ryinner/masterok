@@ -81,13 +81,14 @@ registerForm.addEventListener('submit', (event) => {
         })
         sendRequest('POST', '../php/reg.php', regData, 'application/json')
             .then(data => {
+                showAlert(data)
                 if (data == 'Вы успешно зарегистрировались!') {
                     closeForms()
                 }
             })
             .catch(err => console.log(err))
     } else {
-        alert('Какое то поле не заполнено или нарушена валидация')
+        showAlert('Какое то поле не заполнено или нарушена валидация')
     }
 
 })
@@ -101,12 +102,17 @@ loginForm.addEventListener('submit', (event) => {
         })
         sendRequest('POST', '../php/auth.php', loginData, 'application/json')
             .then(data => {
+                closeForms()
+                showAlert(data)
+                console.log('alrt');
                 if (data == 'Вы успешно авторизированны!') {
-                    location.reload()
+                    setTimeout(() => {
+                        location.reload()
+                    }, 2000);
                 }
             })
             .catch(err => console.log(err))
     } else {
-        alert('Какое то поле не заполнено или нарушена валидация')
+        showAlert('Какое то поле не заполнено или нарушена валидация')
     }
 })

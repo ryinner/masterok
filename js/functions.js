@@ -59,3 +59,10 @@ function closeForms(event) {
     loginForm.classList.remove('visible')
     body.classList.remove('body_hide')
 }
+
+// Показывает алерт
+
+function showAlert(data) {
+    alert.classList.add('alert__body_visible')
+    alertText.innerHTML = data
+}

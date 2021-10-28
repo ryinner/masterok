@@ -19,13 +19,15 @@
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/alert.css">
 </head>
 
 <body id="body">
 
     <div class="site-container">
         <?php
-            require_once("php/partials/header.php") 
+            require_once("php/partials/header.php");
+            require_once("php/partials/alert.php");
         ?>
         <main>
             <?php
