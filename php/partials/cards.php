@@ -3,8 +3,8 @@
         <h2 class="cards__title">Последние заявки на ремонт</h2>
         <div class="cards__container">
         <?php
-            $sql = "SELECT `timestamp`, `address`, `category`, `before_image`, `after_image`  
-            FROM `orders` WHERE `status` = 'отремонтированно' ORDER BY `timestamp` DESC LIMIT 4";
+            $sql = "SELECT timestamp, address, category, before_image, after_image  
+            FROM orders o INNER JOIN categories c ON o.category_id = c.id  WHERE status = 'отремонтированно' ORDER BY timestamp DESC LIMIT 4";
             $query = $connect -> query($sql);
             $result = $query -> fetchAll(PDO::FETCH_ASSOC);
 

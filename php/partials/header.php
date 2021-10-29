@@ -51,7 +51,7 @@
             <ul class="nav__links flex-right">
                 <li class="nav__item"><a class="nav__link" href="/index.php">На главную</a></li>
                 <?php
-                    if ($_SESSION["login"] == "admin") {                
+                    if (!empty($_SESSION["login"]) && $_SESSION["login"] == "admin") {                
                         echo '<li class="nav__item"><a class="nav__link" href="/master.php">Панель администратора</a></li>';
                     }
                 ?>
