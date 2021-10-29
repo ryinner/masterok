@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 29 2021 г., 19:47
+-- Время создания: Окт 29 2021 г., 20:41
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -55,6 +55,7 @@ CREATE TABLE `orders` (
   `category_id` int(11) NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `max_price` int(11) DEFAULT NULL,
+  `final_price` int(11) DEFAULT NULL,
   `status` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Новая',
   `before_image` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `after_image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -64,15 +65,15 @@ CREATE TABLE `orders` (
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `timestamp`, `address`, `category_id`, `description`, `max_price`, `status`, `before_image`, `after_image`) VALUES
-(4, 3, '2021-10-29 14:10:55', 'Яблочкина 20, 71', 9, 'Красивый дом нужен ремонт ', 120000, 'Отремонтированно', '../img/orders/img8.jpg', '../img/orders/img7.jpg'),
-(5, 3, '2021-10-29 14:11:27', 'Курчатова 12, 88', 10, 'Красивое описание', 60000, 'Отремонтированно', '../img/orders/img6.jpg', '../img/orders/img5.png'),
-(6, 3, '2021-10-29 14:12:03', 'Южная 89, 41', 11, 'Не красивое описание', 40000, 'Отремонтированно', '../img/orders/img4.jpg', '../img/orders/img2.jpg'),
-(7, 3, '2021-10-29 14:12:27', 'Фиолетовая 42', 9, 'Очень оригинальное описание', 55000, 'Отремонтированно', '../img/orders/img3.jpg', '../img/orders/img1.jpg'),
-(8, 3, '2021-10-29 14:12:03', 'Северная 15', 11, 'Красивое описание', 80000, 'Новая', '', NULL),
-(9, 3, '2021-10-29 14:12:27', 'Восточная 14', 9, 'Не нужное описание', 400000, 'Новая', '', NULL),
-(10, 3, '2021-10-29 14:19:13', 'Интересный адрес', 9, 'Не менее оригинальное описание', 1200000, 'Новая', '../img/orders/folder.png', NULL),
-(11, 1, '2021-10-29 16:35:56', 'Розовая 22', 11, 'Очередное интересное описание', 40000, 'Новая', '../img/orders/folder.png', NULL);
+INSERT INTO `orders` (`id`, `user_id`, `timestamp`, `address`, `category_id`, `description`, `max_price`, `final_price`, `status`, `before_image`, `after_image`) VALUES
+(4, 3, '2021-10-29 14:10:55', 'Яблочкина 20, 71', 9, 'Красивый дом нужен ремонт ', 120000, NULL, 'Отремонтированно', '../img/orders/img8.jpg', '../img/orders/img7.jpg'),
+(5, 3, '2021-10-29 14:11:27', 'Курчатова 12, 88', 10, 'Красивое описание', 60000, NULL, 'Отремонтированно', '../img/orders/img6.jpg', '../img/orders/img5.png'),
+(6, 3, '2021-10-29 14:12:03', 'Южная 89, 41', 11, 'Не красивое описание', 40000, NULL, 'Отремонтированно', '../img/orders/img4.jpg', '../img/orders/img2.jpg'),
+(7, 3, '2021-10-29 14:12:27', 'Фиолетовая 42', 9, 'Очень оригинальное описание', 55000, NULL, 'Отремонтированно', '../img/orders/img3.jpg', '../img/orders/img1.jpg'),
+(8, 3, '2021-10-29 14:12:03', 'Северная 15', 11, 'Красивое описание', 80000, NULL, 'Новая', '', NULL),
+(9, 3, '2021-10-29 14:12:27', 'Восточная 14', 9, 'Не нужное описание', 400000, NULL, 'Новая', '', NULL),
+(10, 3, '2021-10-29 14:19:13', 'Интересный адрес', 9, 'Не менее оригинальное описание', 1200000, NULL, 'Новая', '../img/orders/folder.png', NULL),
+(11, 1, '2021-10-29 16:35:56', 'Розовая 22', 11, 'Очередное интересное описание', 40000, NULL, 'Новая', '../img/orders/folder.png', NULL);
 
 -- --------------------------------------------------------
 
