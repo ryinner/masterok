@@ -1,8 +1,8 @@
 <?php 
     require_once('php/db.php');
-    if ($_SESSION['login'] !== 'admin') {
-        header('Location: /index.php'); 
-    }
+    // if ($_SESSION['login'] !== 'admin') {
+    //     header('Location: /index.php'); 
+    // }
 ?>
 
 <title>Masterok | Cabinet</title>
@@ -69,7 +69,7 @@
                         <h2 class="cabinet__title_h2">Все заявки</h2>
                         <?php
                         
-                            $sql = "SELECT * FROM `orders`";
+                            $sql = "SELECT * FROM orders o INNER JOIN categories c ON o.category_id = c.id";
                             $query = $connect -> prepare($sql);
                             $query -> execute();
                             $result = $query -> fetchAll(PDO::FETCH_ASSOC);
@@ -79,7 +79,7 @@
                                     <div id="' . $result[$key]["id"] . '" class="card card__cabinet">   
                                         <h4 class="card__text card__text_cabinet card__text_timestamp">' . $result[$key]["timestamp"] . '</h4>
                                         <h3 class="card__text card__text_cabinet">' . $result[$key]["address"] . '</h3>
-                                        <h4 class="card__text card__text_cabinet card__text_category">' . $result[$key]["category_id"] . '</h4>
+                                        <h4 class="card__text card__text_cabinet card__text_category">' . $result[$key]["category"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_description">' . $result[$key]["description"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_max-price">' . $result[$key]["max_price"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>   
