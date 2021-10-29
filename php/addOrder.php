@@ -26,9 +26,7 @@
                 if ($result) {
                     echo 'Добавление заявки успешно';
                 } else {
-                    echo '<pre>';
-                    print_r(["u" => $_SESSION['id'], "a" => $address, "c" => $category, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
-                    echo '</pre>';
+                    echo 'Запрос прошел неудачно';
                 }
             } else {
                 echo 'Возможная атака с помощью файловой загрузки!';

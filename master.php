@@ -1,8 +1,8 @@
 <?php 
     require_once('php/db.php');
-    // if ($_SESSION['login'] !== 'admin') {
-    //     header('Location: /index.php'); 
-    // }
+    if ($_SESSION['login'] !== 'admin') {
+        header('Location: /index.php'); 
+    }
 ?>
 
 <title>Masterok | Cabinet</title>
@@ -82,13 +82,18 @@
                                         <h4 class="card__text card__text_cabinet card__text_category">' . $result[$key]["category"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_description">' . $result[$key]["description"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_max-price">' . $result[$key]["max_price"] . '</h4>
-                                        <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>   
+                                        <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>  
+                                        <div class="btn__container">
+                                            <button id="toFinishedBtn" class="alert__btn">Сменить статус на "отремонтированно"</button>
+                                            <button id="toInWorkBtn" class="alert__btn">Сменить статус на "ремонтируется"</button>
+                                        </div> 
                                     </div>
                                 ';
                             }
                         
                         ?>
                         </div>
+                        
                     </div> 
                 </div>
                 

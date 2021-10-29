@@ -36,7 +36,7 @@
                             <div class="orders__container">
                                 <?php
                                 
-                                    $sql = "SELECT o.`id`, `timestamp`, `address`, `description`, `category`, `max_price`, `status`  
+                                    $sql = "SELECT o.`id`, `timestamp`, `address`, `description`, `category`, `final_price`, `status`  
                                     FROM `orders` o INNER JOIN `categories` c ON o.`category_id` = c.`id` WHERE `user_id` = :u ORDER BY `timestamp` DESC";
                                     $query = $connect -> prepare($sql);
                                     $query -> execute(["u" => $_SESSION['id']]);
@@ -49,13 +49,12 @@
                                                 <h3 class="card__text card__text_cabinet">' . $result[$key]["address"] . '</h3>
                                                 <h4 class="card__text card__text_cabinet card__text_category">' . $result[$key]["category"] . '</h4>
                                                 <h4 class="card__text card__text_cabinet card__text_description">' . $result[$key]["description"] . '</h4>
-                                                <h4 class="card__text card__text_cabinet card__text_max-price">' . $result[$key]["max_price"] . '</h4>
+                                                <h4 class="card__text card__text_cabinet card__text_max-price">' . $result[$key]["final_price"] . '</h4>
                                                 <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>   
-                                                <button class="card__btn alert__btn">Удалить</button>                      
+                                                <button class="card__btn alert__btn">Удалить</button>         
                                             </div>
                                         ';
-                                    }
-                                
+                                    }                                
                                 ?>
                             </div>
                         </div>
