@@ -1,0 +1,19 @@
+.form-add-category {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 400px;
+    box-shadow: 8px 10px 12px 4px rgb(50 50 50 / 72%);
+    background-color: var(--color-white);
+}
+
+.cabinet__title_h2 {
+    width: 100%;
+}
+
+.master__container {
+    display: block !important;
+}

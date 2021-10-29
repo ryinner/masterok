@@ -50,9 +50,11 @@
         <nav class="nav">
             <ul class="nav__links flex-right">
                 <li class="nav__item"><a class="nav__link" href="/index.php">На главную</a></li>
-                <li class="nav__item"><a class="nav__link" href="#">О наc</a></li>
-                <li class="nav__item"><a class="nav__link" href="#">Контакты</a></li>
-                <li class="nav__item"><a class="nav__link" href="">Уведомления</a></li>
+                <?php
+                    if ($_SESSION["login"] == "admin") {                
+                        echo '<li class="nav__item"><a class="nav__link" href="/master.php">Панель администратора</a></li>';
+                    }
+                ?>
                 <li class="nav__item"><a class="nav__link" href="/php/pages/cabinet.php" id="cabinetButton">Личный кабинет</a></li>
             </ul>
         </nav>

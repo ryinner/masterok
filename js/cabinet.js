@@ -16,6 +16,8 @@ addOrderForm.addEventListener('submit', (event) => {
     }
 })
 
+// Валидация
+
 addressInput.addEventListener('input', () => {
     isValid = /[А-Яа-яЁё\s-]+/.test(addressInput.value)
     inputStylesChange(addressInput)
@@ -33,3 +35,24 @@ maxPriceInput.addEventListener('input', () => {
     inputStylesChange(maxPriceInput)
     isValidActions(isValid, maxPriceInput)
 })
+
+// Удаление заявки
+
+let cardBtns = document.querySelectorAll('.card__btn')
+
+cardBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        let orderId = btn.parentNode.id
+        if (btn.previousElementSibling.innerText == 'Новая') {
+            showAlert('Вы действительно хотите удалить эту заявку?', true, orderId)            
+        } else {
+            showAlert('Вы не можете удалить эту заявку, ее статус изменен администратором')
+        }
+    })
+});
+
+
+
+
+
+

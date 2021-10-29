@@ -32,7 +32,7 @@ loginInput.addEventListener('input', () => {
 })
 
 passwordInput.addEventListener('input', () => {
-    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]{8,72}$/.test(passwordInput.value)
+    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]/.test(passwordInput.value)
     inputStylesChange(passwordInput)
     isValidActions(isValid, passwordInput)
 })
@@ -56,7 +56,7 @@ emailInput.addEventListener('input', () => {
 })
 
 regPasswordInput.addEventListener('input', () => {
-    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]{8,}$/.test(regPasswordInput.value)
+    isValid = /^[A-zА-я0-9,./;'\-=+_|':?><`~*@]/.test(regPasswordInput.value)
     inputStylesChange(regPasswordInput)
     isValidActions(isValid, regPasswordInput)
 })
@@ -104,10 +104,9 @@ loginForm.addEventListener('submit', (event) => {
             .then(data => {
                 closeForms()
                 showAlert(data)
-                console.log('alrt');
                 if (data == 'Вы успешно авторизированны!') {
                     setTimeout(() => {
-                        location.reload()
+                        location.replace('../php/pages/cabinet.php')
                     }, 2000);
                 }
             })

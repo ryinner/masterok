@@ -15,15 +15,16 @@
     <div class="form__input">
         <select class="form__categories" size="1" name="category" id="category">
             <?php
-                $sql = "SELECT DISTINCT `category` FROM orders";
+                $sql = "SELECT * FROM `categories`";
                 $query = $connect -> query($sql);
-                $result = $query -> fetchAll(PDO::FETCH_COLUMN);  
+                $result = $query -> fetchAll(PDO::FETCH_ASSOC);  
 
-                for ($i=0; $i < count($result); $i++) { 
-                    echo '<option value="'. $result[$i] .'">'. $result[$i] .'</option>';
+                foreach ($result as $key => $value) {
+                    echo '<option value="'. $result[$key]['id'] .'">'. $result[$key]['category'] .'</option>';
                 }
             ?>
         </select>
+        
     </div>
 
     <div class="form__input">

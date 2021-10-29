@@ -2,16 +2,9 @@
 
     require_once('db.php');
 
-    // echo '<pre>';
-    // echo 'files: '; 
-    // var_dump($_FILES);
-    // echo 'post: '; 
-    // var_dump($_POST);
-    // echo '</pre>';
-
     $address = $_POST['address'];
     $description = $_POST['description'];
-    $category = $_POST['category'];
+    $categoryId = $_POST['category'];
     $max_price = $_POST['max_price'];
 
     $imgSize = $_FILES['uploadFile']['size'];
@@ -27,11 +20,16 @@
     if ($imgSize < $allowedSize) {
         if (in_array($fileExtension, $allowedExtension)) {
             if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $uploadFile)) {
-                $sql = 'INSERT INTO `orders`(`user_id`, `address`, `category`, `description`, `max_price`, `before_image`) VALUES 
-                (:u, :a, :c, :d, :m, :b)';
+                $sql = 'INSERT INTO `orders`(`user_id`, `address`, `category`, `description`, `max_price`, `before_image`) VALUES (:u, :a, :c, :d, :m, :b)';
                 $query = $connect -> prepare($sql);
-                $result = $query->execute(["u" => $_SESSION['id'], "a" => $address, "c" => $category, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
-                echo 'Добавление заявки успешно';
+                $result = $query->execute(["u" => $_SESSION['id'], "a" => $address, "c" => $categoryId, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
+                if ($result) {
+                    echo 'Добавление заявки успешно';
+                } else {
+                    echo '<pre>';
+                    print_r(["u" => $_SESSION['id'], "a" => $address, "c" => $category, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
+                    echo '</pre>';
+                }
             } else {
                 echo 'Возможная атака с помощью файловой загрузки!';
             }

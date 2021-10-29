@@ -28,3 +28,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.card__cabinet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100% !important;
+}
+
+.card__text_cabinet {
+    width: 100%;
+    font-size: 2rem;
+}

@@ -62,7 +62,23 @@ function closeForms(event) {
 
 // Показывает алерт
 
-function showAlert(data) {
+function showAlert(data, showHiddenBtn = false, orderId = null) {    
+    if (showHiddenBtn == true) {
+        console.log(orderId)
+        hiddenBtn.classList.remove('alert__btn_hidden')
+        hiddenBtn.addEventListener('click', ()  => {
+            sendRequest('POST', '../removeOrder.php', orderId)
+            .then(data => {
+                if (data == 'Удаление заявки прошло успешно') {
+                    document.getElementById(orderId).remove()
+                    showAlert(data)
+                } else {
+                    showAlert('Что то пошло не так и не туда')
+                }
+            })
+            .catch(err => console.log(err))
+        })
+    }
     alert.classList.add('alert__body_visible')
     alertText.innerHTML = data
 }

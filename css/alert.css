@@ -1,18 +1,25 @@
 .alert__body {
+    position: absolute;
+    width: 100%;
+    height: 100%;    
+    background-color: rgba(0, 0, 0, 0.527);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.alert__content {
     z-index: 2000;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
-    padding: 14px;
+    transform: translate(-50%, -100%);padding: 14px;
     border: 1px solid black;
     border-radius: 12px;
     background-color: white;
     font-size: 1.5rem;
     max-width: 400px;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
 }
 
 .alert__body_visible {
@@ -41,4 +48,13 @@
     padding: 8px 16px;
     margin-top: 14px;
     cursor: pointer;
+}
+
+.alert__btn_delete {
+    margin-right: 12px;
+}
+
+.alert__btn_hidden {
+    opacity: 0;
+    visibility: hidden;
 }

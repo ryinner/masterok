@@ -21,6 +21,9 @@ const fileInput = document.getElementById('uploadFile')
 const alert = document.getElementById('alert__body')
 const alertText = document.getElementById('alert__text')
 const alertBtn = document.getElementById('alert__btn')
+const hiddenBtn = document.getElementById('alert__btn_hidden')
+const addCategoryForm = document.getElementById('add__category')
+const removeCategoryForm = document.getElementById('remove__category')
 
 if (document.getElementById('header__link_enter') == null) {
     exitButton = document.getElementById('header__link_exit')
@@ -48,3 +51,4 @@ if (typeof exitButton !== 'undefined') {
 alertBtn.addEventListener('click', () => {
     alert.classList.remove('alert__body_visible')
 })
+

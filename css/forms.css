@@ -150,7 +150,7 @@ input[type="checkbox"] {
 }
 
 .visible {
-    z-index: 999;
+    z-index: 950;
     opacity: 1;
     visibility: visible;
     transition: opacity 0.5s ease, visibility 0.5s ease;
