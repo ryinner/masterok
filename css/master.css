@@ -17,3 +17,27 @@
 .master__container {
     display: block !important;
 }
+
+.btn__container_card {
+    justify-content: space-evenly !important;
+}
+
+.alert__body_master {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn__container_jcse {
+    justify-content: space-evenly;
+}
+
+.alert__content_master {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 650px;
+}
+
+.form__input_master {
+    margin: 0 auto;
+}

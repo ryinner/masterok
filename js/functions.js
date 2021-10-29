@@ -81,4 +81,5 @@ function showAlert(data, showHiddenBtn = false, orderId = null) {
     }
     alert.classList.add('alert__body_visible')
     alertText.innerHTML = data
+    body.classList.add('body_hide')
 }

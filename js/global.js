@@ -50,5 +50,6 @@ if (typeof exitButton !== 'undefined') {
 
 alertBtn.addEventListener('click', () => {
     alert.classList.remove('alert__body_visible')
+    body.classList.remove('body_hide')
 })
 

@@ -20,7 +20,7 @@
     if ($imgSize < $allowedSize) {
         if (in_array($fileExtension, $allowedExtension)) {
             if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $uploadFile)) {
-                $sql = 'INSERT INTO `orders`(`user_id`, `address`, `category`, `description`, `max_price`, `before_image`) VALUES (:u, :a, :c, :d, :m, :b)';
+                $sql = 'INSERT INTO `orders`(`user_id`, `address`, `category_id`, `description`, `max_price`, `before_image`) VALUES (:u, :a, :c, :d, :m, :b)';
                 $query = $connect -> prepare($sql);
                 $result = $query->execute(["u" => $_SESSION['id'], "a" => $address, "c" => $categoryId, "d" => $description, "m" => $max_price, "b" => $uploadFile]);
                 if ($result) {

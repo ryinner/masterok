@@ -17,9 +17,10 @@
 <link rel="stylesheet" href="/css/cards.css">
 <link rel="stylesheet" href="/css/alert.css">
 <link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/master.css">
 <link rel="stylesheet" href="/css/cabinet.css">
 
-<body class="cabinet__body">
+<body id="body" class="cabinet__body">
     <div class="site-container">
 
         <?php 
@@ -82,12 +83,14 @@
                                         <h4 class="card__text card__text_cabinet card__text_category">' . $result[$key]["category"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_description">' . $result[$key]["description"] . '</h4>
                                         <h4 class="card__text card__text_cabinet card__text_max-price">' . $result[$key]["max_price"] . '</h4>
-                                        <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>  
-                                        <div class="btn__container">
-                                            <button id="toFinishedBtn" class="alert__btn">Сменить статус на "отремонтированно"</button>
-                                            <button id="toInWorkBtn" class="alert__btn">Сменить статус на "ремонтируется"</button>
-                                        </div> 
-                                    </div>
+                                        <h4 class="card__text card__text_cabinet card__text_status">' . $result[$key]["status"] . '</h4>';
+                                        if ($result[$key]["status"] == 'Новая') {
+                                            echo '<div class="btn__container btn__container_card">
+                                                <button id="toFinishedBtn" class="alert__btn">Сменить статус на "Отремонтированно"</button>
+                                                <button id="toInWorkBtn" class="alert__btn">Сменить статус на "Ремонтируется"</button>
+                                            </div>';
+                                        }                                        
+                                    echo '</div>
                                 ';
                             }
                         
@@ -100,7 +103,9 @@
             </section>
         </main>
 
-        <?php require_once('php/partials/footer.php'); ?>
+        <?php 
+            require_once('php/partials/footer.php'); 
+        ?>
 
     </div>
 

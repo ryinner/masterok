@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/css/alert.css">
 <link rel="stylesheet" href="/css/footer.css">
 
-<body class="cabinet__body">
+<body id="body" class="cabinet__body">
     <div class="site-container">
 
         <?php 

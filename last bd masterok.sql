@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 29 2021 г., 20:41
+-- Время создания: Окт 30 2021 г., 00:44
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -96,7 +96,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `login`, `email`, `password`) VALUES
 (1, 'Админ', 'admin', 'admin@mail.ru', '$2y$10$DxljSQOaUe28fnOHProjVOwlXIIwCLFWp88RF1vSAakNm6sQWnzky'),
 (2, 'Тестовый Логин', 'testlogin', 'testlogin@mail.ru', '$2y$10$6wv94mg5eI5AtRz8GbK3RuFRgt2bm9onUADWlb2Wgr5yAOrfzLlfK'),
-(3, 'Тест', 'test', 'test@mail.ru', '$2y$10$wZTSWb4b3P1G2E3e6C2mF.LfwZFCr4WOyP2Ri11RAtoVz04g0iIKC');
+(3, 'Тест', 'test', 'test@mail.ru', '$2y$10$wZTSWb4b3P1G2E3e6C2mF.LfwZFCr4WOyP2Ri11RAtoVz04g0iIKC'),
+(4, 'Новое Фио', 'newfio', 'newfio@mail.ru', '$2y$10$7ms1WWT/KhONrYNfcny6Qut8fL0kLUb7AuKDqU7WJ0CjTTdahM5oy');
 
 --
 -- Индексы сохранённых таблиц
@@ -129,19 +130,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
