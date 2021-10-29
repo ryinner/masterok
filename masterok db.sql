@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 29 2021 г., 17:21
+-- Время создания: Окт 29 2021 г., 19:47
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -52,7 +52,7 @@ CREATE TABLE `orders` (
   `user_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `address` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `max_price` int(11) DEFAULT NULL,
   `status` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Новая',
@@ -64,14 +64,15 @@ CREATE TABLE `orders` (
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `timestamp`, `address`, `category`, `description`, `max_price`, `status`, `before_image`, `after_image`) VALUES
+INSERT INTO `orders` (`id`, `user_id`, `timestamp`, `address`, `category_id`, `description`, `max_price`, `status`, `before_image`, `after_image`) VALUES
 (4, 3, '2021-10-29 14:10:55', 'Яблочкина 20, 71', 9, 'Красивый дом нужен ремонт ', 120000, 'Отремонтированно', '../img/orders/img8.jpg', '../img/orders/img7.jpg'),
 (5, 3, '2021-10-29 14:11:27', 'Курчатова 12, 88', 10, 'Красивое описание', 60000, 'Отремонтированно', '../img/orders/img6.jpg', '../img/orders/img5.png'),
 (6, 3, '2021-10-29 14:12:03', 'Южная 89, 41', 11, 'Не красивое описание', 40000, 'Отремонтированно', '../img/orders/img4.jpg', '../img/orders/img2.jpg'),
 (7, 3, '2021-10-29 14:12:27', 'Фиолетовая 42', 9, 'Очень оригинальное описание', 55000, 'Отремонтированно', '../img/orders/img3.jpg', '../img/orders/img1.jpg'),
 (8, 3, '2021-10-29 14:12:03', 'Северная 15', 11, 'Красивое описание', 80000, 'Новая', '', NULL),
 (9, 3, '2021-10-29 14:12:27', 'Восточная 14', 9, 'Не нужное описание', 400000, 'Новая', '', NULL),
-(10, 3, '2021-10-29 14:19:13', 'Интересный адрес', 9, 'Не менее оригинальное описание', 1200000, 'Новая', '../img/orders/folder.png', NULL);
+(10, 3, '2021-10-29 14:19:13', 'Интересный адрес', 9, 'Не менее оригинальное описание', 1200000, 'Новая', '../img/orders/folder.png', NULL),
+(11, 1, '2021-10-29 16:35:56', 'Розовая 22', 11, 'Очередное интересное описание', 40000, 'Новая', '../img/orders/folder.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,7 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `category` (`category`);
+  ADD KEY `category` (`category_id`);
 
 --
 -- Индексы таблицы `users`
@@ -133,7 +134,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -149,7 +150,7 @@ ALTER TABLE `users`
 -- Ограничения внешнего ключа таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
